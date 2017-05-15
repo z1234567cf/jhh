@@ -1,0 +1,32 @@
+<view class="bgf2" style="min-height:{{winHeight}}px">
+
+    <view class="person_header">
+        <view class="person_h">
+            <image wx:if="{{userInfo.photo}}" src="{{userInfo.photo}}" mode="scaleToFill" width="158rpx" height="158rpx"></image>
+            <image wx:else src="{{wxUserInfo.avatarUrl}}" mode="scaleToFill" width="158rpx" height="158rpx"></image>
+            <text>{{ !!userInfo.username ? userInfo.username : wxUserInfo.nickName}}</text> 
+        </view>
+    </view>
+
+    <view class="wxcs_bdtb">
+        <navigator url="../instructions/instructions">
+            <text>使用说明</text>
+            <text class="arr_icon_r">></text>
+        </navigator>
+    </view>
+
+    <view class="wxcs_bdtb">
+        <text>客服电话</text>
+        <button bindtap="makeCell" class="btn_46 wxcs_cell">
+            <image src="../../page/image/icon_phone.png" mode="aspectFit" width="34rpx" height="34rpx"></image>
+            <text>{{cs_username}}</text>
+        </button>
+    </view>
+    <view class="wxcs_bdtb" wx:if="{{hasLog}}">
+       <view bindtap="logout" class="logout">退出登录</view>
+    </view>
+    <view class="wxcs_bdtb" wx:else>
+       <view bindtap="logIn" class="logout">登  录</view>
+    </view>                
+</view>
+

@@ -1,0 +1,18 @@
+/* page/navigator/navigate.wxss */
+.deal_section{
+    padding:0px 25px;
+    margin-bottom:15px;
+    line-height: 32px;
+    font-size:12px;
+    color:#5c5c5c;
+    text-indent:2em;
+}
+.deal_title{
+    font-size:12px;
+    font-weight: blod;
+    color:#333;
+    background: #e4e4e4;
+    height:30px;
+    line-height: 30px;
+    margin-bottom:8px;
+}

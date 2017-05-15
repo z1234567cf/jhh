@@ -1,0 +1,25 @@
+<view class="page bgf2 min_h100p">
+    <form class="form_car" catchsubmit="formSubmit2">
+        <view class="bdtb_cf mb20">
+            <label>
+                <view class="label_l">
+                    <text>{{con_arr[index_num].info}}</text>
+                </view>
+                <view class="label_r">
+                    <input placeholder="{{con_arr[index_num].place_info}}" name="{{con_arr[index_num].place_name}}" class="inp100"/>
+                </view>                
+            </label> 
+            <label>
+                <view class="label_l">
+                    <text>{{con_arr[index_num].phone}}</text>
+                </view>
+                <view class="label_r">
+                    <input placeholder="{{con_arr[index_num].place_phone}}" name="{{con_arr[index_num].place_mobile}}" class="inp100" />
+                </view>
+            </label>               
+       </view>
+       <view class="mb20 btn_submit">
+            <button form-type="submit">确 定</button>
+        </view>
+    </form>
+</view>

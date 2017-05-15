@@ -1,0 +1,198 @@
+<view class="page bgf2 min_h100p">
+    <form class="form_release" catchsubmit="formSubmit" >
+        <view class="bdtb_cf">
+            <label>
+                <view class="label_l align_c">
+                    <view class="icon_28 icon_green"></view>             
+                </view>
+                <view class="label_r">  
+                    <navigator url="../../page/area/area?place=start">{{ place_s ? place_s: '请选择起始位置' }}</navigator>
+                </view>    
+            </label>
+            <label>
+                <view class="label_l align_c">
+                    <view class="icon_28 icon_red"></view>                
+                </view>
+                <view class="label_r">
+                    <navigator url="../../page/area/area?place=end">{{place_e?place_e:'请选择结束位置'}}</navigator>
+                </view>
+            </label> 
+            <label>
+                <view class="label_l">
+                    <text>公里数</text>             
+                </view>
+                <view class="label_r">
+                    <input placeholder="请输入起点终点，公里数即自动算出" class="inp100" disabled value="{{distance}}公里" />
+                </view>
+            </label>      
+            <label>
+                <view class="label_l">
+                    <text>装车时间</text>             
+                </view>
+                <view class="label_r">
+                    <view class="picker_bd_d4">
+                        <picker mode="date" value="{{date}}" start="2017-01-01" end="2060-01-01" bindchange="bindDateChange">
+                            <view class="picker">{{date}}</view>
+                        </picker>                    
+                    </view>
+                    <view  class="switch">
+                        <image class="icon_switch" bindtap="bindTimeChange"  wx:if="{{!switchTf}}" mode="aspectFit" src="../../page/image/switch_on.png"></image>
+                        <image class="icon_switch" bindtap="bindTimeChange"  wx:else mode="aspectFit" src="../../page/image/switch_off.png"></image>
+
+                        <input type="hidden"  wx:if="{{!switchTf}}" name="dueTime" class="cs_op0" value="11:00" />
+                        <input type="hidden" wx:else name="dueTime" class="cs_op0" value="17:00" /> 
+                    </view>
+                </view>
+            </label>  
+            <label>
+                <view class="label_l">
+                    <text>备注</text>             
+                </view>
+                <view class="label_r">
+                    <input class="inp100" placeholder="请输入所需板车信息（吨数，样式等）" name="note"/>
+                </view>
+            </label>  
+            <label>
+                <view class="label_l">
+                    <text>车型</text>             
+                </view>
+                <view class="label_r">
+                    <input placeholder="请输入车型" class="inp100" name="carModel" />
+                </view>
+            </label>                                                     
+        </view>
+        <view class="{{add_ins ? 'bdtb_cf': '' }} mb20 bdtn">
+            <view class="add_ins">
+                <button bindtap="add_insurance" class="btn_fd">
+                    <text>添加保险信息</text>
+                    <image wx:if="{{add_ins}}" src="../../page/image/arr_f_b.png" class="icon_arr_tb" mode="aspectFit"></image>
+                    <image wx:else src="../../page/image/arr_f_t.png" class="icon_arr_tb" mode="aspectFit"></image>
+                </button>
+            </view>
+            <view wx-if="{{add_ins}}">
+                <label label-for="carFrameFile">
+                    <view class="label_l">
+                        <text>车架号</text>             
+                    </view>
+                    <view class="label_r">
+                        <view class="image_h_52">
+                            <image src="{{ !!prevImg ? prevImg : '../../page/image/icon_mr.png'}}" mode="aspectFill"></image>
+                            <input type="hidden" name="carFrame" class="cs_op0" value="{{ !!chassis_img ? chassis_img : ''}}" />
+                        </view>
+                        <view class="nav_zp" bindtap="up_image">
+                           <image src="../../page/image/icon_zp.png" width="40rpx" height="40rpx" mode="aspectFill"></image>                        
+                        </view>
+                    </view>
+                </label>  
+                <label label-for="carInsurance ">
+                    <view class="label_l">
+                        <text>保险金额</text>             
+                    </view>
+                    <view class="label_r">
+                        <input placeholder="请输入保险金额(万元)" class="inp100" name="carInsurance"/>
+                    </view>
+                </label>  
+                <label label-for="carOwner">
+                    <view class="label_l">
+                        <text>实际货主</text>             
+                    </view>
+                    <view class="label_r" >
+                        <input placeholder="请输入实际货主" class="inp100" name="carOwner"/>
+                    </view>
+                </label>                 
+            </view>                       
+        </view>
+        <view class="bdtb_cf mb20"> 
+            <view wx:if="{{managerT}}">  
+            <!-- 是调度的话 -->
+                <label style="border-bottom:1rpx solid #cfcfcf;">
+                    <view class="label_l">
+                        <text>总价</text>             
+                    </view>
+                    <view class="label_r">
+                        <input placeholder="请输入订单总价" name="estimateFee" class="inp100" value="" />
+                    </view>
+                </label>       
+            </view>
+            <view wx:else>
+            <!-- 不是调度 -->
+                <view class="radio_wrap">
+                    <radio-group class="radio-group" bindchange="radioChange">
+                        <label class="radio">
+                            <radio value="SINGLE">单程板</radio>
+                        </label>
+                        <label class="radio">
+                            <radio value="RETURN" />回程板
+                        </label>                
+                    </radio-group>
+                    <text>总价:{{price}}元</text>
+                </view>
+            </view>
+            <view class="check_wrap">
+                <checkbox-group bindchange="checkboxChange" name="needSpecialTrailer" >
+                    <label class="checkbox" label-for="needSpecialTrailer">
+                        <checkbox value="{{needSpecialTrailer}}" checked="{{needSpecialTrailer}}">特殊车型5吨板（每公里加0.5元）</checkbox>
+                    </label>
+                </checkbox-group>            
+            </view> 
+        </view>
+        <view class="bdtb_cf mb20"> 
+            <label label-for="company">
+                <view class="label_l">
+                    <text>公司名称</text>             
+                </view>
+                <view class="label_r">
+                    <input placeholder="请输入公司名称"  value="{{company}}" class="inp100" name="company" disabled="{{!!company}}"/>
+                </view>
+            </label>      
+            <label label-for="shipperName">
+                <view class="label_l ">
+                    <text>发车人姓名</text>             
+                </view>
+                <view class="label_r">
+                    <input placeholder="请点击添加姓名" class="inp100" name="shipperName"/>               
+                </view>
+            </label> 
+            <label label-for="shipperPhone">
+                <view class="label_l ">
+                    <text>发车人电话</text>             
+                </view>
+                <view class="label_r">
+                    <input placeholder="请点击添加电话" class="inp100" name="shipperPhone" />             
+                </view>
+            </label>               
+            <label label-for="receiverName">
+                <view class="label_l ">
+                    <text>接车人姓名</text>             
+                </view>
+                <view class="label_r">
+                    <input placeholder="请点击添加姓名" class="inp100" name="receiverName" />  
+                </view>
+            </label>       
+            <label label-for="receiverPhone">
+                <view class="label_l ">
+                    <text>接车人电话</text>             
+                </view>
+                <view class="label_r">
+                    <input placeholder="请点击添加电话" class="inp100" name="receiverPhone" />  
+                </view>
+            </label>                                                                        
+        </view>
+
+        <view class="bdtb_cf mb20">         
+            <label label-for="validHour">
+                <view class="label_l ">
+                    <text>有效时间</text>             
+                </view>
+                <view class="label_r">
+                    <input placeholder="48" class="inp100" name="validHour"/>
+                    <text class="w_150">小时</text>
+                </view>
+            </label>                                                     
+        </view>
+        <view class="btn-area mb20">
+            <button formType="submit" type="warn" wx:if="{{!!needPay}}">下一步</button>
+            <button formType="submit" type="warn"  wx:else>确定</button>
+        </view>
+    </form>
+</view>

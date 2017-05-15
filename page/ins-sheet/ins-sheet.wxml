@@ -1,0 +1,38 @@
+<view class="bgf2" style="min-height:{{winHeight}}px">
+    <view class="up_image_w mb28">
+         <view class="img_up_bg">
+            <view bindtap="choseImg" data-index="0" data-tf="{{ !!loadPhotos[0] }}">
+                <image  wx:if="{{ !!loadPhotos[0] }}"  src="{{!!loadPhotos[0]?loadPhotos[0]: '../../page/image/upload_img_165.png'}}"></image>   
+                <image  wx:else src="{{!!prev_image[0]?prev_image[0]: '../../page/image/upload_img_165.png'}}"></image>        
+            </view>
+         </view>   
+         <view class="img_up_bg">
+            <view bindtap="choseImg" data-index="1"  data-tf="{{ !!loadPhotos[1] }}"> 
+                <image  wx:if="{{ !!loadPhotos[1] }}"  src="{{!!loadPhotos[1]?loadPhotos[1]: '../../page/image/upload_img_165.png'}}"></image>   
+                <image  wx:else src="{{!!prev_image[1]?prev_image[1]: '../../page/image/upload_img_165.png'}}"></image>   
+            </view>
+         </view>  
+         <view class="img_up_bg">
+            <view bindtap="choseImg" data-index="2">
+                <image  wx:if="{{ !!loadPhotos[2] }}"  src="{{!!loadPhotos[2]?loadPhotos[2]: '../../page/image/upload_img_165.png'}}"></image>   
+                <image  wx:else src="{{!!prev_image[2]?prev_image[2]: '../../page/image/upload_img_165.png'}}"></image>                        
+            </view>
+         </view>  
+         <view class="img_up_bg">
+            <view bindtap="choseImg" data-index="3" >
+                <image  wx:if="{{ !!loadPhotos[3] }}"  src="{{!!loadPhotos[3]?loadPhotos[3]: '../../page/image/upload_img_165.png'}}"></image>   
+                <image  wx:else src="{{!!prev_image[3]?prev_image[3]: '../../page/image/upload_img_165.png'}}"></image>            
+            </view>
+         </view>                                     
+    </view>
+
+    <form bindsubmit="bindFormSubmit">
+        <view class="sec3_wrap mb28">
+            <textarea name="note" placeholder="{{note}}"></textarea>        
+        </view>   
+        <view class="btn_wrap">
+            <button form-type="submit" type="warn">提  交</button>
+        </view>
+    </form>
+
+</view>

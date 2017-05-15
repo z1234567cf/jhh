@@ -1,0 +1,22 @@
+.icon_8558, .icon_8558 image{
+    width: 85rpx;
+    height: 58rpx;
+}
+
+.sec4_list .l{
+    align-items: center;
+    display: flex;
+}
+
+.icon_ap{
+    display: flex;
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 20rpx;
+}
+
+.ad_p{
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
+}

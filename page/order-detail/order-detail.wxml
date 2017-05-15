@@ -1,0 +1,167 @@
+<view class="bgf2" style="min-height:{{winHeight}}px">
+    <!-- 不是司机 S -->
+    <view class="sec_2 mb28" wx:if="{{!driverTf}}">
+        <view class="sec_2_t">
+            <view class="l">
+                <image src="{{ !!driverInfo.photo ? driverInfo.photo:'../../page/image/user_pic.png'}}" mode="aspectFill" class="userImage"></image>           
+            </view>
+            <view class="r">
+                <view class="sec_2_t_rt">
+                    <view class="fz_36">{{driverInfo.trueName?driverInfo.trueName:"司机姓名"}}</view>
+                    <view>
+                        <image mode="aspectFit" src="../../page/image/icon_4032_phone.png" class="icon_4032"></image>
+                        <text>{{driverInfo.mobile?driverInfo.mobile:"暂无手机号码"}}</text>
+                    </view>
+                    <view class="icon_58" wx:if="{{manager_driver}}">派</view>
+                </view>
+                <view class="flex_row">
+                    <image src="../../page/image/icon_4032_text.png" mode="aspectFill" class="icon_4032"></image>
+                    <text>{{driverInfo.idCardNo?driverInfo.idCardNo:"暂无身份信息"}}</text>
+                </view>    
+                <view class="flex_row">
+                    <image src="../../page/image/icon_4032_stats.png" mode="aspectFill" class="icon_4032"></image>
+                    <text>{{driverInfo.trailCarNumber?driverInfo.trailCarNumber:"暂无车牌号"}}</text>
+                </view>
+            </view>
+        </view>  
+        <view class="sec_2_b" wx:if="{{orderItem.status=='START'}}">
+            <image src="../../page/image/icon_3444_map.png" mode="aspectFit"></image>
+            <text wx:if="{{orderItem.driver.latestLoc}}">{{orderItem.driver.latestLoc.province?orderItem.driver.latestLoc.province:""}}{{orderItem.latestLoc.driver.city?orderItem.driver.latestLoc.city:""}}{{orderItem.driver.latestLoc.county?orderItem.driver.latestLoc.county:""}}{{orderItem.driver.latestLoc.address?orderItem.driver.latestLoc.address:""}}</text>
+        </view>    
+    </view>
+    <view class="sec_1 mb28 lh90_ptbn" wx:if="{{!driverTf}}">
+        <view class="text  bdb_cf">
+            <text>发车人信息:</text>
+            <text class="cl_a09f9f">（{{orderItem.shipperName?orderItem.shipperName:"无"}},{{orderItem.shipperPhone?orderItem.shipperPhone:"无"}}）</text>    
+        </view>
+        <view class="text lh90">
+            <text>接车人信息:</text>
+            <text class="cl_a09f9f">（{{orderItem.receiverName?orderItem.receiverName:"无"}},{{orderItem.receiverPhone?orderItem.receiverPhone:"无"}}）</text>    
+        </view>
+    </view> 
+
+    <view class="des_text">
+        <text class="cl_red">可装车时间：</text>
+        <text>{{orderItem.dueDate+'  '+orderItem.dueTime}}</text>
+    </view>
+    <view class="sec_1">
+        <view class="text">
+            <view class="flex_l">
+                <view class="icon_22 icon_green"></view>
+            </view>
+            <view class="flex_r">
+                <text>起点:{{orderItem.fromProvince?orderItem.fromProvince:''}}{{orderItem.fromCity?orderItem.fromCity:''}}{{orderItem.fromCounty?orderItem.fromCounty:''}}{{orderItem.fromAddress?orderItem.fromAddress:''}}</text>  
+                <text wx:if="{{driverTf}}">发车人信息: {{ orderItem.shipperName ? orderItem.shipperName: ""}} {{ orderItem.shipperPhone ? orderItem.shipperPhone: ""}}
+                </text>
+            </view>
+        </view>
+        <view class="text">
+            <view class="flex_l">
+                <view class="icon_22 icon_red"></view>
+            </view>
+            <view class="flex_r">
+                <text>终点:{{orderItem.toProvince?orderItem.toProvince:''}}{{orderItem.toCity?orderItem.toCity:''}}{{orderItem.toCounty?orderItem.toCounty:''}}{{orderItem.toAddress?orderItem.toAddress:''}}</text>  
+                <text wx:if="{{driverTf}}">接车人信息: {{orderItem.receiverName ? orderItem.receiverName: ""}} {{ orderItem.receiverPhone ? orderItem.receiverPhone: ""}}                
+                </text>
+            </view>
+        </view>
+        <view class="section_icon cl_red">
+            <view>
+                <image src="../../page/image/icon_km.png" mode="aspectFit"></image>
+                <text>{{orderItem.distance?orderItem.distance:"0"}}公里</text>
+            </view>
+            <view>
+                <image src="../../page/image/icon_money.png" mode="aspectFit"></image>
+                <text>{{orderItem.total?orderItem.total:'0'}}元</text>            
+            </view>
+        </view>
+        <image  wx:if="{{orderItem.routeType == 'SINGLE'}}" class="icon_routeType" src="../../page/image/icon_single.png" mode="aspectFit"></image>
+        <image  wx:elif="{{orderItem.routeType == 'RETURN'}}" class="icon_routeType" src="../../page/image/icon_return.png" mode="aspectFit"></image>
+        <image wx:else class="icon_routeType" src="../../page/image/icon_manager.png" mode="aspectFit"></image>
+    </view> 
+    <view class="sec_1 mb28 bdtn">
+        <view class="text">
+            <text class="cl_a09f9f">车辆类型：{{orderItem.carModel?orderItem.carModel:"无"}}</text>    
+        </view>
+        <view class="text lh90">
+            <text class="cl_a09f9f">所需车型：{{orderItem.specialTrailerModel?orderItem.specialTrailerModel:"无"}}</text>    
+        </view>
+        <view class="text lh90" wx:if="{{ orderItem.status == 'START' }}">
+            <text class="cl_red">订单进行中</text>   
+        </view>
+        <view class="text lh90" wx:if="{{driverTf && orderItem.status == 'SUCCESS'}}">
+            <text class="cl_red">订单已完成</text>   
+        </view>
+        <view class="text lh90"> 
+            <text class="cl_a09f9f">备注：{{orderItem.note?orderItem.note:"无"}}</text>    
+        </view>        
+    </view>   
+
+    <view class="sec_1 mb28 lh90_ptbn">
+        <view class="text  bdb_cf up_image">
+            <text>发车验货单</text>
+
+            <!--  司机上传图片 S -->
+            <navigator url="../ins-sheet/ins-sheet?type=depart" wx:if="{{roleName=='ROLE_DRIVER'}}">
+                <view class="img_flex">
+                    <view class="image_row" wx:for="{{depart_photos}}">
+                        <image src="{{item}}" mode="aspectFill" wx:if="{{index <= 3}}" ></image>         
+                    </view>                 
+                </view>
+                <view class="icon_arr_r">></view>           
+            </navigator>    
+            <!--  司机上传图片 e -->
+
+            <!-- 客户调度查看图片 S-->
+            <view wx:else>
+                <view class="img_flex" >
+                    <view class="image_row" wx:for="{{depart_photos}}">
+                        <image src="{{item}}" mode="aspectFill" wx:if="{{index <= 3}}" ></image>         
+                    </view>                 
+                </view>            
+            </view>
+            <!--  客户和调度查看图片 e -->
+
+        </view>
+        <view class="text lh90 up_image">
+            <text>接车验货单</text>
+            <!--  司机上传图片 S -->            
+            <navigator url="../ins-sheet/ins-sheet?type=receipt" wx:if="{{roleName=='ROLE_DRIVER'}}">
+                <view class="img_flex">
+                    <view class="image_row" wx:for="{{receipt_photos}}">
+                        <image src="{{item}}" mode="scaleToFill" wx:if="{{index <= 3}}" ></image>        
+                    </view>                 
+                </view>
+                <view class="icon_arr_r">></view>           
+            </navigator>
+            <!--  司机上传图片 e -->
+            
+            <!--  客户和调度查看图片 S -->
+            <view class="img_flex" wx:else>
+                <view class="image_row" wx:for="{{receipt_photos}}">
+                    <image src="{{item}}" mode="scaleToFill" wx:if="{{index <= 3}}" ></image>         
+                </view>                   
+            </view>
+            <!--  客户和调度查看图片 e -->  
+        </view>
+    </view> 
+    
+    <view class="sec_1 mb28">
+        <view class="text">
+            <text>保险费用: {{orderItem.premium?orderItem.premium:"0"}}元</text>    
+        </view>
+        <view class="text lh90">
+            <text>保险金额: {{orderItem.carInsurance?orderItem.carInsurance:"0"}}万元</text>    
+        </view>
+        <view class="text lh90"> 
+            <text>司机随车货物险: {{!!orderItem.driver.cargoInsuranceCoverage?orderItem.driver.cargoInsuranceCoverage:"0"}}万元</text>    
+        </view>        
+    </view>  
+    <view wx:if="{{ orderItem.status == 'START' }}"></view>
+
+    <view class="btn_wrap_40 mb28" wx:if="{{finish}}">
+        <view class="space">
+            <view class="btn_red" bindtap="bindComplete">完成订单</view>   
+        </view>
+    </view>
+</view>

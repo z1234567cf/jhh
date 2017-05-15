@@ -1,0 +1,60 @@
+{
+  "pages": [ 
+    "page/index/index",
+    "page/driverList/driverList",      
+    "page/logs/log",
+    "page/register/register", 
+    "page/deal/deal",   
+    "page/personal/personal",
+    "page/release/release",
+    "page/instructions/instructions",
+    "page/instructions/instruct_page",
+    "page/car_p_info/car_p",
+    "page/city/city",
+    "page/area/area",
+    "page/order/order",
+    "page/order-detail/order-detail",
+    "page/desire-detail/desire-detail",
+    "page/ins-sheet/ins-sheet",
+    "page/pay-all/pay-all",
+    "page/pay-earnest/pay-earnest"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "平板车",
+    "navigationBarBackgroundColor": "#fbf9fe",
+    "backgroundColor": "#fbf9fe",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "page/index/index",
+      "iconPath": "page/image/icon_API.png",
+      "selectedIconPath": "page/image/icon_API_HL.png",
+      "text": "首页"
+    },
+    {
+      "pagePath": "page/order/order",
+      "iconPath": "page/image/icon_API.png",
+      "selectedIconPath": "page/image/icon_API_HL.png",
+      "text": "我的订单"
+    },    
+    {
+      "pagePath": "page/personal/personal",
+      "iconPath": "page/image/icon_API.png",
+      "selectedIconPath": "page/image/icon_API_HL.png",
+      "text": "个人中心"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

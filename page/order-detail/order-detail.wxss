@@ -1,0 +1,143 @@
+.userImage{
+    display: flex;    
+    width: 160rpx;
+    height:160rpx;
+    border-radius: 50%;
+}
+.sec_2_t .r{
+    line-height: 48rpx;
+    font-size: 12px;
+    color: #a09f9f;
+}
+.sec_2{
+    padding:0rpx 42rpx;
+    border-top: 1rpx solid #d2d2d2;
+    border-bottom: 1rpx solid #d2d2d2;
+    background-color: #fff; 
+}
+.sec_2_t{
+    display: flex;
+    flex-direction: row;
+    padding: 42rpx 0rpx;
+}
+.sec_2_t .r{
+    display: flex;
+    flex-direction: column;
+    padding-left:33rpx;
+    width:100%;
+    box-sizing: border-box;
+}
+
+.sec_2_t_rt{
+    display: flex;
+    flex-direction: row;   
+    color:#333;
+}
+.sec_2_t_rt view{
+    display: flex;
+    flex-direction: row;
+    padding-right:42rpx;   
+    align-items: center;
+}
+.icon_4032{
+    display: flex;width: 40rpx;height: 32rpx;
+    margin-right: 15rpx;
+}
+.sec_2_t_rt .fz_36{
+    font-size:36rpx;
+}
+
+.icon_58{
+    width:58rpx;
+    height:58rpx;
+    display: flex;
+    background-color: #ff3439;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 34rpx;
+    justify-content: center;
+}
+.sec_2_t_rt .icon_58{
+    padding:0px;
+}
+
+.sec_2_b{
+    display: flex;
+    flex-direction: row;
+    padding-left: 45rpx;
+    border-top:1rpx solid #cfcfcf;
+    height: 84rpx;
+    line-height: 84rpx;
+    width:100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    align-items: center;
+    font-size: 28rpx;
+}
+.sec_2_b image{
+    width: 34rpx;
+    height: 44rpx;
+    display: flex;
+    margin-right: 7rpx;
+}
+.sec_2_b text{
+    display: flex;
+}
+
+
+.up_image{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.up_image text{
+    display: flex;
+    flex: 0 0 0 165rpx;
+    width: 165rpx;
+    flex-shrink: 0;
+}
+.up_image navigator{
+    display: flex;
+    flex:1;
+    width:100%;
+    justify-content: flex-end;
+    flex-direction: row;    
+}
+
+.up_image .image_row{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right:5rpx;
+}
+.up_image .image_row:last-child{
+    padding-right:0rpx;
+}
+
+.image_row image{
+    width:105rpx;
+    height:75rpx;
+    display: flex;
+    flex-direction: row;
+}
+
+.up_image navigator image:last-child{
+    margin-right: 0rpx;
+}
+
+.up_image navigator .icon_arr_r{
+    display: flex;
+    flex: 0 0 0 30rpx;
+    width: 30rpx;
+    justify-content: center;
+}
+
+.up_image .img_flex{
+    display: flex;
+    flex: 1;
+    flex-direction: flex-start;
+    padding: 5px 0px;
+}
+

@@ -1,0 +1,67 @@
+<view class="bgf2" style="min-height:{{winHeight}}px">
+    <view class="sec4_list cl_9d fz24 bdbn">
+        <view class="l">费用明细</view>
+    </view> 
+    <view class="sec4">
+        <view class="sec4_list">
+            <view class="l">运费总额</view>
+            <view class="r">
+                <text class="text">￥{{ !!total ? total: 0  }}</text>    
+            </view>
+        </view> 
+
+        <view class="sec4_list" wx:if="{{ !!earnest }}">
+            <view class="l">已缴定金</view>
+            <view class="text ad_p">
+                    <image src="../../page/image/icon_plus.png"  wx:if="{{!!earnest}}" class="icon_ap" mode="scaleToFill"></image>
+                ￥{{!!earnest ? earnest: 0}}
+            </view>
+        </view>
+
+        <view class="sec4_list" >
+            <view class="l">
+                <text style="margin-right:10rpx;">保险费用</text>
+                <view wx:if="{{!!premium}}" class="icon_8558">
+                    <image src="../../page/image/has_pay.png" wx:if="{{!!premiumPaid}}"></image>         
+                    <image src="../../page/image/no_pay.png"  wx:else></image>                                            </view>    
+            </view>
+            
+            <view class="text ad_p" wx:if="{{!premium}}">
+                ￥{{!!premium ? premium: '0.0'}}
+            </view>   
+
+            <view class="text ad_p" wx:else>
+                <image src="../../page/image/icon_add.png" class="icon_ap" mode="scaleToFill" wx:if="{{!premiumPaid}}"></image>￥{{!!premium ? premium: '0.0'}}
+            </view>   
+        </view>
+    </view> 
+    <view class="sec4_list cl_9d fz24 bdbn">
+        <view class="l">收款方：</view>
+        <view class="r">
+            <text>杭州沃盛软件有限公司</text>    
+        </view>        
+    </view> 
+    <view class="sec4 mb28">
+        <view class="wx_pay_lr">
+            <image src="../../page/image/wx_icon_76.png"></image>
+            <view class="r">
+                <text>微信支付</text>
+                <text class="cl_9d fz24">亿万用户的选择，又快又安全</text>
+            </view>
+        </view>
+    </view>
+    <view class="pay_sec">  
+        <view class="sec4_list bdbn">
+            <view class="r cost">
+                <text>应付金额:</text>
+                <text class="cl_red">{{!!balancePay ? balancePay : 0}}</text>
+            </view>
+        </view>       
+        <view class="btn_wrap_40">
+            <view class="space">
+                <button class="btn_red" disabled="{{disabled}}" bindtap="bindPay">支付</button>   
+            </view>
+        </view>
+    </view>
+</view>
+

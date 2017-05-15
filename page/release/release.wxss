@@ -1,0 +1,197 @@
+.bdtb_cf{
+    border-bottom: 1rpx solid #cfcfcf;
+    border-top:1rpx solid #cfcfcf;
+    background: #fff;
+    padding:0rpx 35rpx;
+}
+
+.form_release label{
+    display: flex;
+    width:100%;
+    border-bottom:1rpx solid #cfcfcf;
+    height:100rpx;
+    line-height: 100rpx;
+    align-items: center;
+}
+.form_release .bdtb_cf label:last-child{
+    border-bottom:0px;
+} 
+.form_release .label_l{
+    min-width:85rpx;
+    display:flex;
+    justify-content:flex-start;
+} 
+.form_release .align_c{
+    justify-content:center;
+}
+
+.label_r{
+    display: flex;
+    flex:1;
+    padding-left: 16rpx;
+    align-items: center;
+    box-sizing: border-box;
+    height:100rpx;
+    line-height: 100rpx;
+    overflow: hidden;
+}
+
+.label_l .icon_28{
+    display: block;
+    width:28rpx;
+    height: 28rpx;
+    border-radius: 50%;
+}
+.inp100{
+    width:100%;
+    height:100%;
+}
+.label_l text{
+    text-align: left;
+}
+
+
+.picker_bd_d4{
+    flex-grow: 3;    
+    border:1rpx solid #d4d4d4;
+    height: 70rpx;
+    align-items: center;
+    justify-content:center;   
+    line-height: 70rpx; 
+    margin-right: 30rpx;
+}
+.picker_bd_d4 picker{
+    display: block;    
+    height: 70rpx;  
+    line-height: 70rpx; 
+    width:100%;
+    box-sizing: border-box;         
+}
+
+.picker_bd_d4 .picker{
+    display: flex; 
+    flex:1;   
+    padding:0px 37rpx; 
+    height: 70rpx;  
+    line-height: 70rpx; 
+    box-sizing: border-box; 
+    width:100%;     
+}
+
+.switch{
+    display: flex;
+    flex-grow: 1;
+    justify-content:flex-end;  
+    height: 70rpx;     
+    line-height: 70rpx;   
+    align-items: center;
+}
+.switch .icon_switch{
+    display: flex;
+    width: 108rpx;
+    height: 48rpx;     
+}
+.label_r textarea{
+    display: flex;
+    width: 100%;
+    height:100rpx; 
+    line-height: 32rpx!important; 
+    padding:16rpx 0px;
+    box-sizing: border-box;
+}
+
+.image_h_52{
+    display: flex;
+    flex: 1;
+    height:72rpx;
+    justify-content:center;  
+}
+.image_h_52 image{
+    width:72rpx;
+    height:72rpx;
+}
+
+.add_ins{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;  
+    align-items: center;
+}
+
+.btn_fd{
+    display: flex;
+    background: #fd5353;
+    color:#fff;
+    font-size: 32rpx;
+    height: 74rpx;
+    line-height: 74rpx;
+}
+.btn_fd text{margin-right: 10px;}
+
+.add_ins .icon_arr_tb{
+    display: flex;
+    width:18rpx;
+    height: 15rpx;
+    margin-top: 28rpx;      
+}
+
+.nav_zp{
+    display: flex;
+    width: 40rpx;
+    height: 40rpx;
+    position: static;
+    margin-left:0px;
+    margin-right:0px;
+}
+
+.nav_zp image{width:100%; height:100%;}
+
+
+.w_150{
+    display: flex;
+    width: 150rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    justify-content:flex-end;  
+    color:#d9d9d9;      
+}    
+
+.radio_wrap{
+    border-bottom: 1rpx solid #cfcfcf;
+    display: flex;
+    flex-direction: row;
+    height:100rpx;
+    line-height: 100rpx;
+}  
+.check_wrap{
+    display: flex;
+    flex-direction: row;
+    height:100rpx;
+    line-height: 100rpx;    
+}
+
+.radio_wrap .radio-group{
+    border-bottom:0px;
+}
+
+.radio_wrap .radio-group{
+    flex-grow: 3;
+    display: flex;
+    flex-direction: row;
+}
+.radio_wrap .radio{
+    display: flex;
+    flex:1;
+}
+
+.radio_wrap text{
+    display: flex;
+    flex-grow: 2;
+    justify-content:flex-end;
+}
+
+.label_r navigator{
+    display: flex;
+    width: 100%;
+    height: 100%;
+} 

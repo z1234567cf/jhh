@@ -1,0 +1,28 @@
+<view class="bgf2" style="min-height:{{winHeight}}px">
+    <view class="pay-earnest">
+        <text>需先支付费用至平板车</text>
+        <text class="fz32">¥{{totalFee}}</text>
+    </view>
+    <view class="sec4_list cl_9d fz24 bdbn">
+        <view class="l">收款方：</view>
+        <view class="r">
+            <text>杭州沃盛软件有限公司</text>    
+        </view>        
+    </view> 
+
+    <view class="sec4 mb28">
+        <view class="wx_pay_lr">
+            <image src="../../page/image/wx_icon_76.png"></image>
+            <view class="r">
+                <text>微信支付</text>
+                <text class="cl_9d fz24">亿万用户的选择，又快又安全</text>
+            </view>
+        </view>
+    </view>
+  
+    <view class="btn_wrap_40">
+        <view class="space">
+            <button class="btn_red" disabled="{{disabled}}" bindtap="bindPay">支付</button>   
+        </view>
+    </view>
+</view>

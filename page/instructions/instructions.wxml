@@ -1,0 +1,10 @@
+<view class="instruct">
+    <view wx:for="{{instructions}}">
+        <view class="item">
+            <navigator url="instruct_page?id={{index}}">
+                <text>{{index+1}}.{{item.title}}</text>
+                <text class="icon_arr_r">></text>
+            </navigator>
+        </view>  
+    </view>
+</view>

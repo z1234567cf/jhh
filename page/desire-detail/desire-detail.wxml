@@ -1,0 +1,61 @@
+<view class="bgf2 pt30 box-box" style="min-height:{{winHeight}}px">
+    <view class="des_text">
+        <text class="cl_red">可装车时间：</text>
+        <text>{{desire.dueDate+'  '+desire.dueTime}}</text>
+    </view>
+    <view class="sec_1 mb28">
+        <view class="text">
+            <view class="flex_l">
+                <view class="icon_22 icon_green"></view>
+            </view>
+            <view class="flex_r">
+                <text>起点:{{desire.fromProvince?desire.fromProvince:''}}{{desire.fromCity?desire.fromCity:''}}{{desire.fromCounty?desire.fromCounty:''}}{{desire.fromAddress?desire.fromAddress:''}}</text>    
+            </view>
+        </view>
+        <view class="text">
+            <view class="flex_l">
+                <view class="icon_22 icon_red"></view>
+            </view>
+            <view class="flex_r">
+                <text>终点:{{desire.toProvince?desire.toProvince:''}}{{desire.toCity?desire.toCity:''}}{{desire.toCounty?desire.toCounty:''}}{{desire.toAddress?desire.toAddress:''}}</text>    
+            </view>
+        </view>
+        <view class="section_icon cl_red">
+            <view>
+                <image src="../../page/image/icon_km.png" mode="aspectFit"></image>
+                <text>{{desire.distance?desire.distance:""}}公里</text>
+            </view>
+            <view>
+                <image src="../../page/image/icon_money.png" mode="aspectFit"></image>
+                <text>{{desire.estimateFee?desire.estimateFee:''}}元</text>            
+            </view>
+        </view>
+        <image src="../../page/image/icon_single.png" wx:if="{{desire.routeType=='SINGLE'}}" class="icon_routeType" mode="aspectFit"></image>  
+        <image src="../../page/image/icon_return.png" wx:elif="{{desire.routeType=='RETURN'}}" class="icon_routeType" mode="aspectFit"></image>          
+        <image src="../../page/image/icon_manager.png" wx:else class="icon_routeType" mode="aspectFit"></image>
+    </view> 
+    <view class="des_text">
+        <text>{{desire.company?desire.company:''}}</text>
+    </view> 
+    <view class="sec_1 mb28 lh90_ptbn">
+        <view class="text  bdb_cf">
+            <text>发车人信息</text>
+            <text class="cl_a09f9f">（{{desire.shipperName?desire.shipperName:""}}  {{desire.shipperPhone?desire.shipperPhone:""}}）</text>    
+        </view>
+        <view class="text lh90">
+            <text>接车人信息</text>
+            <text class="cl_a09f9f">（{{desire.receiverName?desire.receiverName:""}}  {{desire.receiverPhone?desire.receiverPhone:""}}）</text>    
+        </view>
+    </view> 
+    <view class="sec_1 mb28">
+        <view class="text">
+            <text class="cl_a09f9f">车辆类型：{{desire.carModel?desire.carModel:""}}</text>    
+        </view>
+        <view class="text lh90">
+            <text class="cl_a09f9f">所需车型：{{desire.needSpecialTrailer ? '五吨板':''}}</text>    
+        </view>
+        <view class="text lh90"> 
+            <text class="cl_a09f9f">备注：{{desire.note?desire.note:"无"}}</text>    
+        </view>        
+    </view>     
+</view>

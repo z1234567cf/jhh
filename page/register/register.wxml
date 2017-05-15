@@ -1,0 +1,60 @@
+<view class="page">
+  <form class="section_form" catchsubmit="formSubmit" catchreset="formReset">
+    <view class="role_select mb20">
+
+      <radio-group bindchange="radioChange">
+        <label wx:for="{{items}}">
+          <label class="{{item.checked ? 'active':''}}">
+            <radio value="{{item.name}}" checked="{{item.checked}}" />
+            {{item.value}}
+            <input class="cs_op0" name="role" value="{{role_role}}" />          
+          </label>
+        </label>        
+      </radio-group>
+    </view>  
+
+    <view class="section_form_1 mb20">
+      <label for="username">
+        <image src="../../page/image/icon_user.png" class="image icon_user" mode="aspectFit"></image>
+        <input name="username" placeholder="请输入手机号码" class="inp" value="{{userName}}" bindinput="changeUser"/>
+      </label>
+      <label for="verificationCode">
+        <image src="../../page/image/icon_yzm.png" class="image icon_yzm" mode="aspectFit"></image>
+        <input name="verificationCode" placeholder="请输入验证码" class="inp"/>
+        <view class="yzm" bindtap="getYzm">获取验证码</view>
+      </label>
+      <label for="password">
+        <image src="../../page/image/icon_pws.png" class="image icon_pws" mode="aspectFit"></image>
+        <input name="password" placeholder="请输入密码" type="password" class="inp"/>
+      </label>
+      <label for="repassword">
+        <image src="../../page/image/icon_pws.png" class="image icon_pws" mode="aspectFit"></image>
+        <input name="repassword" placeholder="请再次输入密码" type="password" class="inp"/>
+      </label>                     
+    </view>
+
+    <view class="section_picker1 mb20">
+      <image src="../../page/image/icon_link.png" class="image icon_pws" mode="aspectFit"></image>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{cs_array}}" range-key="nickname" class="picker1">
+        <view>
+          <text wx:if="{{!!cs_id}}">{{cs_nickname}}</text>
+          <text wx:else>请选择VIP专属客服</text>
+        </view>
+      </picker>
+      <input type="text"  name="csId" value="{{cs_id}}" class="cs_op0"/>
+      <input type="text"  name="wxOpenId" value="{{wxId}}" class="cs_op0"/>      
+    </view>
+
+    <view class="btn-area mb20">
+      <button formType="submit" type="primary">注册</button>
+      <button formType="reset" type="default">重置</button>
+    </view>
+  </form>
+  <view class="describe">
+    <text>一经创建小板车账户即表示您同意我们的</text>
+    <navigator url="../../page/deal/deal" hover-class="navigator-hover" class="navigator">
+      <text>条款以及隐私声明</text>
+    </navigator>
+  </view>
+</view>
+

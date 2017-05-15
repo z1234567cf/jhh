@@ -1,0 +1,156 @@
+
+.body{
+    background-color:#ededed;
+}
+.nav{
+    width:100%;
+    height:36px;
+    display:flex;
+    flex-direction:row;
+    color:#2e3336;
+    font-size:28rpx;
+    font-weight:bold; 
+    line-height:36px;  
+    background: #fff;
+    border-bottom: 2rpx solid #fd5353;
+    box-sizing:border-box; 
+    position:fixed;
+    top:0px;
+    left:0px;  
+    z-index:999;      
+}
+.default{
+    text-align:center;
+    flex:1;
+    box-sizing:border-box;    
+}
+.active{
+    text-align:center;
+    color:#fc5558;
+    flex:1;
+    border-bottom:4rpx solid #fd5353;
+    box-sizing:border-box;
+    line-height:35px;      
+}
+.show{
+    display:block;
+    text-align:center;
+}
+.hidden{
+    display:none;
+    text-align:center;
+}
+.order_item{
+    width:100%;
+    background: #fff;
+    padding:24rpx 40rpx 24rpx;
+    line-height: 40rpx;
+    font-size:28rpx;
+    color:#333534;
+    border-top:1rpx solid #dbdbdb;
+    border-bottom:1rpx solid #dbdbdb;
+    margin-bottom:24rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+.order_item_t{
+    display: flex;
+    width:100%;
+    flex-direction: row;
+    align-items: center;   
+    line-height: 64rpx; 
+}
+.order_item_t .time{
+    display: flex;
+    flex:1;
+    overflow: hidden;
+    line-height: 64rpx;    
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.order_item_t .time text{
+    display: flex;
+    flex:1;
+    margin-right: 5rpx;
+    justify-content: flex-start;
+}
+
+.assigne{
+    background-color: #05aec5;
+    color:#fff;
+    height:32rpx;
+    line-height: 32rpx;
+    font-size:12px;
+    padding:0px 10rpx;
+    border-radius: 16rpx;
+}
+.unassign{
+    border-radius: 16rpx;
+    background-color: #f67c00;    
+    color:#fff; 
+    height:32rpx;
+    line-height: 32rpx;
+    font-size:12px;
+    padding:0px 10rpx; 
+}
+
+
+
+.order_item_t .status{
+    display: flex;
+    flex: 0 0 0 90rpx;
+    width: 90rpx;
+    height:64rpx;
+    line-height: 64rpx;
+    color: #b2b2b2;
+}
+
+.order_item .text{
+  display: flex;
+  width: 100%;  
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  text-align: left;
+}
+
+.order_item .text view{
+    display: flex;
+
+    overflow: hidden;
+}
+
+.order_item .text .icon_22{
+    display: flex;
+    width:22rpx;
+    height: 22rpx;
+    border-radius: 50%;
+    margin-right: 32rpx;
+    align-items: center;
+}
+
+.icon_routeType{
+    display: flex;width:30rpx;height:40rpx;
+    position: absolute;
+    right:0px;
+    top:0px;
+}
+
+.order_item_b{
+    border-top:1rpx solid #e6e6e6;
+    padding:24rpx 36rpx 0rpx;
+    width:100%;
+    box-sizing: border-box;
+    height: 100rpx;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24rpx;
+}
+.order_item_b .btn_red{
+    padding: 0rpx 50rpx;
+    height: 70rpx;
+    line-height:70rpx;
+}
+

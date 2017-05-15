@@ -1,0 +1,131 @@
+<view class="body" style="min-height:{{winHeight}}px">
+
+  <view class="nav bc_white">
+    <view class="{{selected2?'active':'default'}}" wx:if="{{driverF}}" bindtap="selected2">
+      未接单    
+    </view>
+    <view class="{{ selected ?'active':'default'}}" bindtap="selected">进行中</view>
+    <view class="{{selected1 ? 'active':'default'}}" bindtap="selected1">已完成</view>
+  </view>
+
+  <view class="{{selected2?'show':'hidden'}}" style="height:{{winHeight}}px;padding-top:50px;box-sizing:border-box;">
+    <scroll-view class="order_list" scroll-y="true" style="height:{{hgt}}px" bindscrolltolower="loadMore3" bindscrolltoupper="refresh" bindscroll="scroll" scroll-top="{{scrollTop}}">
+      <view wx:if="{{!!desireItem}}" >
+        <view  wx:for="{{desireItem}}">
+          <view class="order_item">
+            <view bindtap="goDesire" data-id="{{item.id}}">
+              <view class="order_item_t">
+                <view class="time">{{item.dueDate +'  '+ item.dueTime}}</view>
+                <view class="status">
+                  <text wx:if="{{item.status=='REFUNDING'}}">退款中</text>
+                </view>
+              </view>
+              <view class="text">
+                <view style="height:64rpx; align-items:center;">
+                  <view class="icon_22 icon_green"> </view>                
+                </view>
+                <view>起点:{{item.fromProvince?item.fromProvince:''}}{{item.fromCity?item.fromCity:''}}{{item.fromCounty?item.fromCounty:''}}{{item.fromAddress?item.fromAddress:''}}
+                </view>
+              </view>
+              <view class="text">
+                <view style="height:64rpx; align-items:center;">
+                  <view class="icon_22 icon_red"> </view>
+                </view>
+                <view>终点:{{item.toProvince?item.toProvince:''}}{{item.toCity?item.toCity:''}}{{item.toCounty?item.toCounty:''}}{{item.toAddress?item.toAddress:''}}
+                </view>
+              </view>            
+            </view>
+            <view class="order_item_b" wx:if="{{item.status !='REFUNDING'}}" >
+              <view class="btn_red" bindtap="bindCancel" data-id="{{item.id}}">取消订单</view> 
+            </view>
+            <image  wx:if="{{item.routeType == 'SINGLE'}}" class="icon_routeType" src="../../page/image/icon_return.png" mode="aspectFit"></image>
+             <image  wx:elif="{{item.routeType == 'RETURN'}}" class="icon_routeType" src="../../page/image/icon_single.png" mode="aspectFit"></image>
+            <image wx:else class="icon_routeType" src="../../page/image/icon_manager.png" mode="aspectFit"></image>
+          </view>  
+        </view>
+      </view>
+      <view wx:else>暂时没有相关信息</view> 
+    </scroll-view>
+  </view>
+
+  <view class="{{selected?'show':'hidden'}}"  style="height:{{winHeight}}px;padding-top:50px;box-sizing:border-box;">
+
+    <scroll-view class="order_list" scroll-y="true" style="height:{{hgt}}px"  bindscrolltolower="loadMore1"  bindscroll="scroll" bindscrolltoupper="refresh" scroll-top="{{scrollTop}}">
+      <view wx:if="{{!!orderItems}}" >
+        <view  wx:for="{{orderItems}}" data-status="{{item.status}}" bindtap="goOrder" data-id="{{item.id}}" >
+          <view class="order_item" >
+            <view class="order_item_t">
+              <view class="time">
+                <text>{{item.dueDate +'  '+ item.dueTime}}</text>
+                <text wx:if="{{manager}}">                
+                  <text class="assigne" wx:if="{{ item.customerId == userId }}">指派订单</text>
+                  <text class="unassign" wx:if="{{ item.customerId != userId }}">客户订单</text>         
+                </text>
+              </view>
+              <view class="status">
+                <text wx:if="{{item.status=='START'}}">进行中</text>
+                <text wx:if="{{item.status=='SUCCESS '}}">已完成</text>
+              </view>
+            </view>
+            <view class="text">
+              <view style="height:64rpx; align-items:center;">
+                <view class="icon_22 icon_green"> </view>
+              </view>
+              <view>起点:{{item.fromProvince?item.fromProvince:''}}{{item.fromCity?item.fromCity:''}}{{item.fromAddress?item.fromAddress:''}}
+              </view>              
+            </view>
+            <view class="text">
+              <view style="height:64rpx; align-items:center;">              
+                  <view class="icon_22 icon_green"> </view>
+              </view>
+              <view>终点:{{item.toProvince?item.toProvince:''}}{{item.toCity?item.toCity:''}}{{item.toCounty?item.toCounty:''}}{{item.toAddress?item.toAddress:''}}
+              </view>
+            </view>
+            <image  wx:if="{{item.routeType == 'SINGLE'}}" class="icon_routeType" src="../../page/image/icon_return.png" mode="aspectFit"></image>
+             <image  wx:elif="{{item.routeType == 'RETURN'}}" class="icon_routeType" src="../../page/image/icon_single.png" mode="aspectFit"></image>
+            <image wx:else class="icon_routeType" src="../../page/image/icon_manager.png" mode="aspectFit"></image>
+          </view> 
+        </view>
+      </view>
+      <view wx:else>暂时没有相关信息</view>   
+    </scroll-view>
+  </view>
+
+  <view class="{{selected1?'show':'hidden'}}"  style="height:{{winHeight}}px;padding-top:50px;box-sizing:border-box;">
+    <scroll-view class="order_list" scroll-y="true" style="height:{{hgt}}px"  bindscrolltolower="loadMore2"  bindscroll="scroll" bindscrolltoupper="refresh" scroll-top="{{scrollTop}}">
+      <view wx:if="{{!!orderItems}}">
+        <view wx:for="{{orderItems}}" bindtap="goOrder" data-id="{{item.id}}" data-status="{{item.status}}">
+            <view class="order_item">
+              <view class="order_item_t">
+                <view class="time">{{item.dueDate +'  '+ item.dueTime}}</view>
+                <view class="status">
+                  <text wx:if="{{item.status=='START'}}">进行中</text>
+                  <text wx:if="{{item.status=='SUCCESS '}}">已完成</text>
+                </view>
+              </view>
+              <view class="text">
+                  <view style="height:64rpx; align-items:center;">              
+                      <view class="icon_22 icon_green"> </view>
+                  </view>
+                  <view>起点:{{item.fromProvince?item.fromProvince:''}}{{item.fromCity?item.fromCity:''}}{{item.fromAddress?item.fromAddress:''}}
+                  </view>
+              </view>
+              <view class="text">
+                  <view style="height:64rpx; align-items:center;">                 
+                    <view class="icon_22 icon_red"></view>
+                  </view>
+                  <view>终点:{{item.toProvince?item.toProvince:''}}{{item.toCity?item.toCity:''}}{{item.toAddress?item.toAddress:''}}
+                  </view>
+              </view>
+              
+              <image  wx:if="{{item.routeType == 'SINGLE'}}" class="icon_routeType" src="../../page/image/icon_return.png" mode="aspectFit"></image>
+              <image  wx:elif="{{item.routeType == 'RETURN'}}" class="icon_routeType" src="../../page/image/icon_single.png" mode="aspectFit"></image>
+              <image wx:else class="icon_routeType" src="../../page/image/icon_manager.png" mode="aspectFit"></image>
+            </view>  
+        </view>
+      </view>
+      <view wx:else>暂时没有相关信息</view>
+    </scroll-view>
+  </view>
+  <loading hidden="{{loading}}">加载中...</loading>     
+</view>

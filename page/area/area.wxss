@@ -1,0 +1,92 @@
+.area_top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;  
+    width:100%; 
+    padding:24rpx 35rpx;
+    height:88rpx;
+    line-height:40rpx;
+    box-sizing: border-box;
+    z-index:1;
+}
+
+.icon_tran_20{
+    width: 0;
+    height: 0;
+    border-left: 10rpx solid transparent;
+    border-right: 10rpx solid transparent;
+    border-top: 20rpx solid #6e6e6e;    
+}
+
+.area_top .l{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;  
+    flex:1;  
+}
+
+.area_top .l .flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;  
+}
+.area_top .l navigator{
+    color: #333;
+}
+
+.area_top .l .icon_tran_20{
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
+.area_top .r{
+    display: flex;
+    flex: 0rpx 0rpx 0rpx 130rpx;
+    width:130rpx;
+    justify-content: center;
+    align-items: center;     
+}
+
+.area_top input{
+    display: flex;
+    flex: 1;
+    height:40rpx;
+    border-left: 1rpx solid #e5e5e5;
+    padding:0px 10rpx;
+}
+
+.area_list{
+    box-sizing: border-box;
+    padding-top: 88rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.area_list .selection{
+    padding:20rpx 30rpx;
+    display: flex;    
+    flex-direction: column;
+    border-top: 1rpx solid #e7e7e7;
+}
+
+.area_list .selection:last-child{
+    border-bottom: 1rpx solid #e7e7e7;
+}
+
+.area_list .area_name{
+    display: flex;
+    font-size: 32rpx;
+    color:#333;
+    line-height: 42rpx;
+}
+
+.area_list .area_district{
+    display: flex;
+    /*font-size: 24rpx;*/
+    font-size:12px;
+    color: #b7b7b7;
+    line-height: 34rpx;
+}

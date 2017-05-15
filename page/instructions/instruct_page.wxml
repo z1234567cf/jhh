@@ -1,0 +1,7 @@
+<view class="instruct_tit">
+    <view class="line_clf3"></view>
+    <text>{{instruct.title}}</text>
+</view>
+<view class="instruct_con">
+    <text>{{instruct.content}}</text>
+</view>

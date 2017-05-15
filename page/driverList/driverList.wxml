@@ -1,0 +1,57 @@
+<view class="bgf2" style="min-height:{{winHeight}}px">
+    <view wx:if="{{!!driverList}}">
+        <view wx:for="{{driverList}}">
+            <view class="sec6 mb28">
+                <view class="sec6_t pr">
+                    <view class="col_1">
+                        <image src="{{ !!item.photo ? item.photo:'../../page/image/user_pic.png'}}"></image>
+                    </view>
+                    <view class="col_2">
+                        <text class="fz38">{{ !!item.nickname?nickname:"昵称"}}</text>
+                        <text>{{item.username}}</text>
+                        <view class="col_2_b">
+                            <image  mode="aspectFit" class="icon_map"
+                    src="{{ !!item.photo ? item.photo:'../../page/image/icon_map_3040.png'}}">
+                            </image>
+                            <text class="cla1">{{!!item.latestLoc.city?item.latestLoc.city:''}}</text>
+                        </view>
+                    </view>
+                    <view class="col_3">
+                       <view bindtap="makePhone" data-phone="{{item.username}}">
+                            <image src="../../page/image/icon_phone.png" mode="aspectFit" ></image>      
+                        </view>
+                    </view>
+                    <view class="col_4" wx:if="{{ !item.hasDoingOrder}}">
+                        <view bindtap="bindRobOrder" class="btn_rob" data-id="{{item.id}}">派单</view>
+                    </view>
+                </view>
+
+                <view class="sec6_b" wx:if="{{!!item.hasDoingOrder}}">
+                    <view class="sec6_b_t">
+                        <view class="l city">
+                            <view class="icon_green icon_22"></view>
+                            <text>{{ !!item.fromLoc.city ? item.fromLoc.city : ""}}</text>               
+                        </view>
+                        <view class="c">
+                            <image src="../../page/image/icon_arr.png" mode="aspectFit" ></image>
+                        </view>
+                        <view class="r city">
+                            <view class="icon_red icon_22"></view> 
+                            <text>{{ !!item.toLoc.city ? item.toLoc.city : ""}}</text>                  
+                        </view>
+                    </view>
+                    <!--<view class="sec6_b_b">
+                        <text class="clfd">可装车时间: </text>
+                        <text class="cla1">{{item.dueDate}}</text>
+                    </view>-->
+                </view>
+                <view class="sec_6_pa pa"  wx:if="{{!!item.hasDoingOrder}}">
+                    <image src="../../page/image/icon_onRoad.png" class="sec_6_pa" mode="aspectFit" ></image>
+                </view>
+            </view>           
+        </view>    
+    </view>
+    <view  class="no_d_txt" wx:if="{{!driverList}}">
+        没有司机列表
+    </view> 
+</view>

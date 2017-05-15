@@ -1,0 +1,21 @@
+.pay-earnest{
+    display: flex;
+    background: #fd5353;
+    color:#fff;
+    font-size: 28rpx;
+    line-height: 70rpx;
+    height: 180rpx;
+    box-sizing: border-box;
+    border-bottom:1rpx solid #d3d3d3;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20rpx 0rpx;
+}
+
+.pay-earnest text{
+    display: flex;
+    flex: 1;
+    justify-content: center;    
+}
+
+.fz32{ font-size: 32rpx;}

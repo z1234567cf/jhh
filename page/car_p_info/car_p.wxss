@@ -1,0 +1,63 @@
+.form_car label{
+    display: flex;
+    width:100%;
+    border-bottom:1rpx solid #cfcfcf;
+    height:100rpx;
+    line-height: 100rpx;
+    align-items: center;
+}
+.form_car .bdtb_cf label:last-child{
+    border-bottom:0px;
+} 
+.form_car .bdtb_cf{padding:0px 35rpx; border-bottom: 1rpx solid #cfcfcf;}
+
+.form_car .label_l{
+    min-width:85rpx;
+    display:flex;
+    justify-content:flex-start;
+} 
+.form_car .align_c{
+    justify-content:center;
+}
+
+.label_r{
+    display: flex;
+    flex:1;
+    padding-left: 16rpx;
+    align-items: center;
+    box-sizing: border-box;
+    height:100rpx;
+    line-height: 100rpx;
+}
+
+.label_l .icon_28{
+    display: block;
+    width:28rpx;
+    height: 28rpx;
+    border-radius: 50%;
+}
+.inp100{
+    width:100%;
+    height:100%;
+}
+.label_l text{
+    text-align: left;
+}
+
+.btn_submit{
+    display: flex;
+    justify-content:center;
+    align-items: center;  
+    padding:0px 35rpx;  
+    height: 105rpx;
+}
+.btn_submit button{
+    display: flex;
+    width:100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    align-items: center;   
+    color: #fff;
+    background: #fd5353;
+    justify-content:center;
+}

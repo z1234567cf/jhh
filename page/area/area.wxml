@@ -1,0 +1,20 @@
+<view class="area_top">
+    <view class="l">
+        <view class="flex">
+            <navigator url="../../page/city/city">{{curCity}}</navigator>
+            <view class="icon_tran_20"></view>
+        </view>
+        <input placeholder="请输入目的地" bindinput="bindSerch"/>  
+    </view>
+</view>
+
+<scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-top="{{scrollTop}}" class="area_list">
+    <view class="selection" wx:for="{{sugData}}" wx:key="{{item.cityid}}" bindtap="areaChosen" data-id="{{index}}">
+        <view wx:if="{{!!item.location}}">
+            <view class="area_name">{{item.name}}</view>
+            <view class="area_district" wx:if="{{item.province}}">{{item.province+item.city}}</view>
+            <view class="area_district" wx:else>{{item.city+''+item.district+''+item.name}}</view>
+        </view>
+    </view>
+</scroll-view>
+

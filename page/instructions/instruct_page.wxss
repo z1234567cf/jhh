@@ -1,0 +1,36 @@
+.instruct_tit{
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;    
+    padding:10rpx 20rpx 0rpx;
+    border-bottom: 1rpx solid #cfcfcf;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    align-items: center;
+}
+
+.instruct_tit text{
+    flex: 1;
+    font-size: 28rpx;   
+}
+
+.line_clf3{
+    width: 5rpx;
+    height: 28rpx;
+    background-color: #ff3439; 
+    margin-right: 20rpx;
+}
+
+.instruct_tit .line_clf3{
+    flex: 0 0 0 20rpx;
+}
+
+.instruct_con{
+    display: flex;
+    font-size:28rpx;
+    color:#6f6f6f;
+    line-height:64rpx;
+    padding:20rpx 40rpx 0rpx;
+}
+

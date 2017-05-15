@@ -1,0 +1,126 @@
+<view class="bgf2">
+<!--<view class="{{ roleName != 'ROLE_DRIVER' ? 'pb_no_driver':'' }}  pb_wrap bgf2">-->
+   
+        <view class="page_list" wx:if="{{ roleName == 'ROLE_CUSTOMER' }}">
+            <view wx:for="{{caiItems}}" >
+                <view class="item_list">
+                    <view class="item"> 
+                    <view class="list_title">
+                        <view class="icon_red"></view>   
+                        <text>{{item.company?item.company:'平板车' }}</text>
+
+                        <image src="../../page/image/icon_vip.png" mode="aspectFit" wx:if="{{item.customer.vip}}" class="icon_vip" ></image>
+                        <image src="../../page/image/icon_rz.png" mode="aspectFit" wx:else class="icon_rz" ></image>
+                        <text class="txt_sus">发单成功！</text>
+                    </view>         
+                    <view>
+                        <text>{{item.dueDate +'  '+item.dueTime}}</text>
+                    </view>
+                    </view>
+                    <image wx:if="{{item.routeType =='RETURN' }}" src="../../page/image/icon_return.png" mode="aspectFit"  class="icon_r_type"></image>       
+                    <image wx:elif="{{item.routeType =='SINGLE' }}" src="../../page/image/icon_single.png" mode="aspectFit"  class="icon_r_type"></image>       
+                    <image wx:else src="../../page/image/icon_manager.png" mode="aspectFit"  class="icon_r_type"></image>       
+                </view>
+            </view>
+            <view class="tips" wx:if="{{!caiItems}}">
+                <view wx:if="{{hasMore}}">
+                    <image src="../../page/image/loading.gif" mode="aspectFill"/>
+                    <text>玩了命的加载中...</text>
+                </view>
+                <view wx:else><text>没有更多内容了</text></view>
+            </view>
+        </view>
+
+        <view class="driver_lists" wx:else>  
+            <!--noUserInfo 或者是客户 调度 司机-->
+            <view wx:for="{{caiItems}}" >
+                <view class="driver_list">
+                    <image mode="aspectFit" class="icon_r_type_2" wx:if="{{item.routeType =='RETURN' }}" src="../../page/image/icon_return_2.png"></image>
+                    <image mode="aspectFit" class="icon_r_type_2" wx:elif="{{item.routeType =='SINGLE' }}" src="../../page/image/icon_single_2.png"></image>
+                    <image mode="aspectFit" class="icon_r_type_2" wx:else src="../../page/image/icon_manager_2.png"></image>
+                    <view class="driver_list_t">
+                        <view class="driver_list_tl">
+                            <view class="flex_row">
+                            <view class="icon_21 icon_green flex_0">
+                            </view>   
+                            <view class="flex_col flex_1">
+                                <text class="fz38" wx:if="{{item.onCity}}">{{item.fromCounty}}</text>
+                                <text class="fz38" wx:else>{{item.fromCity}}</text>
+                                <text class="cla1 fz24" wx:if="{{item.onCity}}">{{item.fromCity}}</text>
+                                <text class="cla1 fz24" wx:else>{{item.fromProvince}}</text>
+                            </view>         
+                            </view>
+                            <view class="center">
+                                <image src="../../page/image/icon_arr.png" mode="aspectFit" class="icon_arr"></image>
+                            </view> 
+                            <view class="flex_row">
+                            <view class="icon_21 icon_red flex_0">
+                            </view>   
+                            <view  class="flex_col flex_1">
+                                <text class="fz38" wx:if="{{item.onCity}}">{{item.toCounty}}</text>
+                                <text class="fz38" wx:else>{{item.toCity}}</text>
+                                <text class="cla1 fz24" wx:if="{{item.onCity}}">{{item.toCity}}</text>
+                                <text class="cla1 fz24" wx:else>{{item.toProvince}}</text>
+                            </view>         
+                            </view>
+                        </view>
+                        <view class="driver_list_tr clfd">
+                            <text>公里：{{item.distance}}公里</text>
+                            <text wx:if="{{!noUserInfo}}">
+                                <text wx:if="{{ item.status == 'PAID'}}">总价：{{item.estimateFee}}元</text>
+                            </text>
+                        </view>
+                    </view>  
+
+                    <view class="driver_list_b">
+                        <view class="driver_list_bl flex_col">
+                            <view class="flex_row driver_list_bl_t">
+                            <text class="clfd">可装车时间：</text>
+                            <text>{{item.dueDate +'  '+item.dueTime}}</text>
+                            </view>
+
+                            <view class="flex_col driver_list_bl_b">
+                            <view>
+                                <view class="flex_row flex_1">
+                                    <image class="icon_car" mode="aspectFit" src="../../page/image/icon_car_1.png"></image>
+                                    <text>{{item.carModel}}</text>
+                                </view>
+                                <view wx-if="{{item.needSpecialTrailer}}"  class="flex_1">
+                                    <image class="icon_car" mode="aspectFit" src="../../page/image/icon_car_2.png"></image>
+                                    <text>5吨板</text>
+                                </view>                
+                            </view>
+                            <view>
+                                <image class="icon_car" mode="aspectFit" src="../../page/image/icon_car_3.png"></image>
+                                <text>备注：{{item.specialTrailerModel}}</text>              
+                            </view>
+                            </view>
+                        </view>
+                        <view class="driver_list_br">
+                            <view catchtap="bindRobOrder" data-id="{{item.id}}" 
+                            data-status="{{item.status}}">
+                                <image src="../../page/image/icon_receive_3.png" class="receive_order"
+                                 wx:if="{{noUserInfo}}"></image>  
+                                <image src="../../page/image/icon_receive_1.png" class="receive_order"
+                                 wx:elif="{{ item.status == 'PAID'}}"></image>  
+                                <image src="../../page/image/icon_receive_2.png" class="receive_order" data-id="{{item.id}}" wx:else></image>    
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+<loading hidden="{{loading}}">加载中...</loading>     
+<view class="fixed_l_b" wx:if="{{roleName != 'ROLE_DRIVER' }}">
+    <view class="btn_release" bindtap="bindRelease">发布货源</view>
+</view>
+<!-- 调度和客户都能够发布货源 -->
+
+
+
+
+
+

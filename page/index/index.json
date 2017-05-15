@@ -1,0 +1,11 @@
+{
+    "tabBar": {
+        "color": "#dddddd",
+        "selectedColor": "#3cc51f",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff"
+    },
+    "window": {
+        "navigationBarTitleText": "客户货源"
+    }
+}

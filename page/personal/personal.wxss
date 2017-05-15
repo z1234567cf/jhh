@@ -1,0 +1,113 @@
+.person_header{
+    width:100%;
+    background-color: #f9f2ea;
+    padding-top: 36rpx;
+}
+.person_h{
+    width:100%;
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;  
+    padding-bottom:56rpx;
+}
+.person_h image{
+    display: flex;    
+    width: 158rpx;
+    height: 158rpx;
+    margin:0px auto 38rpx;
+    border-radius: 50%;
+}
+.person_h text{
+    display: flex;
+    text-align: center;
+    justify-content: center;     
+    font-size:28rpx;
+    line-height: 28rpx;
+}
+
+.per_result{
+    line-height: 38rpx;
+    font-size: 28rpx;
+    display: flex;
+    flex-direction: row; 
+    padding-bottom:16rpx;  
+}
+
+.per_result .flex_1{
+    display: flex;
+    justify-content: center;  
+    flex-direction: column;      
+}
+.per_result .flex_1 text{
+    display: flex;
+    justify-content: center;  
+}
+
+.wxcs_bdtb{
+    border-top: 1px solid #dbdbdc;
+    border-bottom: 1px solid #dbdbdc; 
+    height:104rpx;
+    line-height: 104rpx;
+    margin-bottom:20rpx;
+    font-size:28rpx;
+    padding:0rpx 38rpx;
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    align-items: center;    
+}
+.wxcs_bdtb navigator{
+    display: flex;
+    width: 100%;
+    flex-direction: row; 
+}
+.wxcs_bdtb text{
+    display:flex;
+    flex:1;
+}
+
+.wxcs_bdtb .arr_icon_r{
+    flex: 1;
+    display: block;
+    text-align: right;
+}
+
+.navigator_hover{
+    background-color: none;
+}
+
+.navigator_hover{font-size: 28rpx;}
+
+.wxcs_cell{
+    flex:0 0 0 300rpx;
+    display: flex;
+    flex-direction: row;
+    width: 300rpx;
+    height: 60rpx;  
+    line-height: 60rpx;  
+    color:#fff;  
+    font-size:28rpx;
+    box-sizing: border-box;
+    overflow: hidden;  
+    justify-content:center;
+    padding-left:25rpx;
+    align-items: center;
+}
+
+.wxcs_cell image{
+    width: 34rpx;
+    height: 34rpx;  
+    margin-right: 20rpx;
+}
+
+.wxcs_cell text{
+    display: flex;
+    flex:1;
+    font-size:28rpx;
+    font-family: "微软雅黑";
+}
+
+.logout{
+    width: 100%;
+    height:100%;
+}
